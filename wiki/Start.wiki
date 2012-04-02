@@ -16,5 +16,6 @@ Umożliwia dodawanie takich rzeczy jak:
 System posiada również obsługę kont użytkowników. Tylko zalogowani użytkownicy mogą dodawać nowe filmy.
 
 = TODO =
+  * instalator
   * kasowanie filmów z bazy
   * zarządzanie kontami użytkowników (wprowadzenie roli admina)
