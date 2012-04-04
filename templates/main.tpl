@@ -12,70 +12,72 @@ Released   : 20111225
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta name="keywords" content="" />
-<meta name="description" content="" />
-<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<title>{$site_title}</title>
-<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Marvel|Delius+Unicase' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
-<link href="static/style.css" rel="stylesheet" type="text/css" media="screen" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	<title>{$site_title}</title>
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Marvel' rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Marvel|Delius+Unicase' rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css' />
+	<link href="static/style.css" rel="stylesheet" type="text/css" media="screen" />
 </head>
 <body>
-<div id="wrapper">
-	<div id="wrapper2">
-		<div id="header" class="container">
-			<div id="logo">
-				<h1><a href="index.php">Baza <span>Filmów</span></a></h1>
-			</div>
-			<div id="menu">
-				<ul>
-					<li class="current_page_item"><a href="index.php">Homepage</a></li>
-					{if $smarty.session.login eq 1 || isset($smarty.cookies.logged_as)}
-						<li><a href="index.php?c=add">Nowy Film</a></li>
-						<li><a href="admin.php" target="_blank">Panel</a></li>
-					{else}
-						<li><a href="register.php">Zarejestruj się</a></li>
-					{/if}
-				</ul>
-			</div>
-		</div>
-		<!-- end #header -->
-		<div id="page">
-			<div id="content">
-			{if $det eq 'display'}
-				<div class="post">
-				<h2 class="title">{$tytul_filmu}</h2>
-				<div style="clear: both;">&nbsp;</div>
-				<div class="entry">
-					<p>
-						<img src="{$img_link}" align="left" width=90 height=118 hspace=5/>
-						<b>Reżyser:</b> {$rezyser}</br>
-						<b>Rok:</b> {$rok}</br>
-						<b>Gatunek:</b> {$gatunek}<br>
-						<b>Dodał:</b> {$by}<br>
-							</p>
-						<p>	
-						{$streszczenie}
-						</p>
+	<div id="wrapper">
+		<div id="wrapper2">
+			<div id="header" class="container">
+				<div id="logo">
+					<h1><a href="index.php">Baza <span>Filmów</span></a></h1>
 				</div>
-			{elseif $action eq 'denyadd'}
-				<div class="post">
-					<h2 class="title">Nowy film</h2>
-					<div style="clear: both;">&nbsp;</div>
-					<div class="entry">
-						<div id="insert">
-							<p>Aby dodać nowy film musisz się zalogować"</p>
+				<div id="menu">
+					<ul>
+						<li class="current_page_item"><a href="index.php">Homepage</a></li>
+						{if $smarty.session.login eq 1 || isset($smarty.cookies.logged_as)}
+							<li><a href="index.php?c=add">Nowy Film</a></li>
+							<li><a href="admin.php" target="_blank">Panel</a></li>
+						{else}
+							<li><a href="register.php">Zarejestruj się</a></li>
+						{/if}
+					</ul>
+				</div>
+			</div>
+			<!-- end #header -->
+			<div id="page">
+				<div id="content">
+				{if $det eq 'display'}
+					<div class="post">
+						<h2 class="title">{$tytul_filmu}</h2>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+							<p>
+								<img src="{$img_link}" align="left" width=90 height=118 hspace=5/>
+								<b>Reżyser:</b> {$rezyser}</br>
+								<b>Rok:</b> {$rok}</br>
+								<b>Gatunek:</b> {$gatunek}<br>
+								<b>Dodał:</b> {$by}<br>
+							</p>
+							<p>	
+								{$streszczenie}
+							</p>
 						</div>
 					</div>
-			{elseif $action eq 'add'}
-				<div class="post">
-					<h2 class="title">Nowy film</h2>
-					<div style="clear: both;">&nbsp;</div>
-					<div class="entry">
-						<div id="insert">
-							<form enctype="multipart/form-data" action="index.php" method="post">
+				{elseif $action eq 'denyadd'}
+					<div class="post">
+						<h2 class="title">Nowy film</h2>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+							<div id="insert">
+								<p>Aby dodać nowy film musisz się zalogować"</p>
+							</div>
+						</div>
+					</div>
+				{elseif $action eq 'add'}
+					<div class="post">
+						<h2 class="title">Nowy film</h2>
+						<div style="clear: both;">&nbsp;</div>
+						<div class="entry">
+							<div id="insert">
+								<form enctype="multipart/form-data" action="index.php" method="post">
 								<table>
 									<tr>
 										<td>Tytuł</td>
@@ -101,49 +103,52 @@ Released   : 20111225
 									<tr>
 										<td><input type="submit" id="insert-submit" value="Dodaj"/></td><td></td>
 									</tr>
-							</table>
-							</form>
+								</table>
+								</form>
+							</div>
 						</div>
-				</div>
-			{elseif $flist eq 'titles'}
-				<div class="post">
-					<h2 class="title">Tytuły filmów</h2>
-					<div style="clear: both;">&nbsp;</div>
-					<div class="entry">
-						{foreach from=$tytuly item=tf}
-							<a href="index.php?t={$tf}">{$tf}</a></br>
-						{/foreach}
 					</div>
-			{elseif $y_list eq 'years'}
-				<div class="post">
-					<h2 class="title">Tytuły filmów</h2>
-					<div style="clear: both;">&nbsp;</div>
-					<div class="entry">
-						{foreach from=$tytuly item=tf}
-							<a href="index.php?t={$tf}">{$tf}</a></br>
-						{/foreach}
-					</div>
-			{else}
-				<div class="post">
-					{foreach from=$rows item=r}
-						<h2 class="title">{$tytul_filmu[$r]}</h2>
+				{elseif $flist eq 'titles'}
+					<div class="post">
+						<h2 class="title">Tytuły filmów</h2>
 						<div style="clear: both;">&nbsp;</div>
 						<div class="entry">
-					<p>
-						<img src="{$img_link[$r]}" align="left" width=90 height=118 hspace=5/>
-						<b>Reżyser:</b> {$rezyser[$r]}</br>
-						<b>Rok:</b> {$rok[$r]}</br>
-						<b>Gatunek:</b> {$gatunek[$r]}<br>
-						<b>Dodał:</b> {$by[$r]}<br>
-							</p>
-						<p>
-						{$streszczenie[$r]}
-						</p>
+							{foreach from=$tytuly item=tf}
+								<a href="index.php?t={$tf}">{$tf}</a></br>
+							{/foreach}
 						</div>
+					</div>	
+				{elseif $y_list eq 'years'}
+					<div class="post">
+						<h2 class="title">Tytuły filmów</h2>
 						<div style="clear: both;">&nbsp;</div>
-					{/foreach}
-			{/if}
-				</div>
+						<div class="entry">
+							{foreach from=$tytuly item=tf}
+								<a href="index.php?t={$tf}">{$tf}</a></br>
+							{/foreach}
+						</div>
+					</div>
+				{else}
+					<div class="post">
+						{foreach from=$rows item=r}
+							<h2 class="title">{$tytul_filmu[$r]}</h2>
+							<div style="clear: both;">&nbsp;</div>
+							<div class="entry">
+								<p>
+									<img src="{$img_link[$r]}" align="left" width=90 height=118 hspace=5/>
+									<b>Reżyser:</b> {$rezyser[$r]}</br>
+									<b>Rok:</b> {$rok[$r]}</br>
+									<b>Gatunek:</b> {$gatunek[$r]}<br>
+									<b>Dodał:</b> {$by[$r]}<br>
+								</p>
+								<p>
+									{$streszczenie[$r]}
+								</p>
+							</div>
+							<div style="clear: both;">&nbsp;</div>
+						{/foreach}
+					</div>
+				{/if}
 			</div>
 			<!-- end #content -->
 			<div id="sidebar">
