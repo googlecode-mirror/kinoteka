@@ -1,6 +1,8 @@
 ﻿<?php
+if(!file_exists("inc/config.php")) {
+	header("Location: http://".$_SERVER['SERVER_NAME']."/install.php");
+}
 session_start();
-
 include "inc/conn.php";
 include('Smarty.class.php');
 
