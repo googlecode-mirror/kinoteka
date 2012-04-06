@@ -1,3 +1,6 @@
 #summary One-sentence summary of this page.
 
 = Instalacja =
+== Konfiguracja apacza ==
+== Konfiguracja bazy ==
+== Instalacja aplikacji ==
