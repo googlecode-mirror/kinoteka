@@ -27,6 +27,11 @@ try {
 			break;
 			case 'delete':
 				$site->assign('action','delete');
+				$sql = $dbh->query("SELECT tytul from film");
+				foreach ($sql->fetchAll() as $r) {
+					$tf[] = $r['tytul'];
+				}
+				$site->assign('films', $tf);
 			break;
 		}
 		if(isset($_POST["oldpass"], $_POST['npass'], $_POST['confirmpass'])) {
@@ -60,6 +65,17 @@ try {
 				}
 			}
 		}
+		if(isset($_POST['todel'])) {
+			foreach($_POST['tytul_filmu'] as $t) {
+				$sql = $dbh->query("SELECT obrazek FROM film WHERE tytul='".$t."'");
+				$obrazek = $sql->fetchColumn();
+				unlink($obrazek);
+				$sql = $dbh->query("DELETE FROM film WHERE tytul='".$t."'");
+				$site->assign('err', 'deleteok');
+				$site->assign('dtf', $_POST['tytul_filmu']);
+			}
+		}
+		
 	}
 	else {
 		$site->assign('authuser', 'unauth');
