@@ -64,6 +64,22 @@ Released   : 20111225
 							</table>
 							</form>
 						</div>
+					{elseif $action eq 'delete'}
+						<div class="entry">
+							<form action="admin.php" method="POST">
+							<input type="hidden" name="todel" value="selected" />
+							<table>
+								{foreach from=$films item=tf}
+								<tr>
+									<td><input type="checkbox" name="tytul_filmu[]" value="{$tf}"></td><td>{$tf}</td>
+								</tr>
+								{/foreach}
+								<tr>
+									<td><input type="submit" value="Kasuj"></td><td></td>
+								</tr>
+							</table>
+							</form>
+						</div>
 					{else}
 						<div class="entry">
 						</div>
@@ -74,6 +90,13 @@ Released   : 20111225
 						<p>Stare hasło się nie zgadza</p>
 					{elseif $err eq 'msg_sent'}
 						<p>Aby potwierdzić zmianę hasła kliknij link w mailu</p>
+					{elseif $err eq 'deleteok'}
+						<p><strong>Skasowane filmy</strong></p>
+						<ul>
+							{foreach from=$dtf item=t}
+								<li>{$t}</li>
+							{/foreach}
+						</ul>
 					{/if}
 				</div>
 			</div>
